@@ -22,6 +22,7 @@ function App() {
         
         {/* Page Routing */}
         <Routes>
+          <Route path="/" element={<Home darkMode={darkMode} />} />
           <Route path="/home" element={<Home darkMode={darkMode} />} />
           <Route path="/about" element={<About darkMode={darkMode} />} />
           <Route path="/skills" element={<Skills darkMode={darkMode} />} />
