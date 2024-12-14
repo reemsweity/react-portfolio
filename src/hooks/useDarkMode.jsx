@@ -1,23 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useDarkMode = () => {
+  // Get initial state from localStorage or default to 'false'
   const [darkMode, setDarkMode] = useState(() => {
-    // Retrieve dark mode preference from localStorage (or default to false)
-    const savedMode = localStorage.getItem('darkMode');
-    return savedMode ? JSON.parse(savedMode) : false;
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("darkMode")) || false;
+    }
+    return false;
   });
 
+  // Toggle dark mode and store in localStorage
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem("darkMode", JSON.stringify(newMode)); // Save to localStorage
+      return newMode;
+    });
+  };
+
   useEffect(() => {
-    // Apply the background color and text color based on darkMode
-    const body = document.body;
-    body.style.backgroundColor = darkMode ? '#1a202c' : '#ffffff';
-    body.style.color = darkMode ? '#ffffff' : '#333333';
-
-    // Save the dark mode state to localStorage for persistence
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+    // Apply dark mode class to body element on mode change
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
   }, [darkMode]);
-
-  const toggleDarkMode = () => setDarkMode(prevMode => !prevMode);
 
   return [darkMode, toggleDarkMode];
 };

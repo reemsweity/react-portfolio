@@ -65,7 +65,7 @@ const Project = ({ darkMode }) => {
 
       <div
         name="Project"
-        className={`py-20 font-sans min-h-screen py-8 ${
+        className={`py-20 font-sans min-h-screen  ${
           darkMode ? "bg-gray-900 text-gray-400" : "bg-gray-100 text-gray-900"
         }`}
       >

@@ -12,13 +12,14 @@ import useDarkMode from './hooks/useDarkMode'; // Import the custom hook
 
 function App() {
   // Use the custom hook to manage dark mode state
-  const [darkMode, toggleDarkMode] = useDarkMode();
+  const [darkMode, setDarkMode] = useDarkMode();
 
   return (
     <Router>
+      {/* Apply dark mode classes globally */}
       <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-800'}`}>
-        {/* Pass the darkMode and toggleDarkMode to Navbar */}
-        <Navbar darkMode={darkMode} setDarkMode={toggleDarkMode} />
+        {/* Pass darkMode and setDarkMode to Navbar and Footer */}
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         
         {/* Page Routing */}
         <Routes>
@@ -30,8 +31,8 @@ function App() {
           <Route path="/contact" element={<Contact darkMode={darkMode} />} />
         </Routes>
 
-        {/* Pass the darkMode and toggleDarkMode to Footer */}
-        <Footer darkMode={darkMode} setDarkMode={toggleDarkMode} />
+        {/* Pass darkMode and setDarkMode to Footer */}
+        <Footer darkMode={darkMode} setDarkMode={setDarkMode} />
 
         <Toaster />
       </div>
