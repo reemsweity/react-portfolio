@@ -71,7 +71,11 @@ const Project = ({ darkMode }) => {
       >
         {/* Header */}
         <header className="text-center">
-          <h1 className="text-4xl font-bold drop-shadow-lg text-yellow-400">Projects</h1>
+        <h1
+  className={`text-3xl font-bold mb-4 text-center ${
+    darkMode ? "text-yellow-400" : "text-gray-800"
+  }`}
+>Projects</h1>
         </header>
 
         {/* Projects Section */}

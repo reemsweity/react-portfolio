@@ -46,7 +46,13 @@ const Contact = ({ darkMode }) => {
         <meta name="description" content="Reach out to me with any inquiries or messages." />
       </Helmet>
 
-      <h1 className="text-3xl font-bold mb-4 text-center text-yellow-400 ">Contact Me</h1>
+      <h1
+  className={`text-3xl font-bold mb-4 text-center ${
+    darkMode ? "text-yellow-400" : "text-gray-800"
+  }`}
+>
+  Contact Me
+</h1>
 
       <div className="flex flex-col items-center justify-center">
         <form
