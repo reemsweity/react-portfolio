@@ -55,7 +55,7 @@ const About = ({ darkMode }) => {
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
             {/* Download CV Button */}
             <a
-              href="https://drive.google.com/uc?export=download&id=1rGM5unBSZHT6aCif1Hkm5mZoFimFGI8q"
+              href="https://drive.google.com/file/d/1_fTavui0nxG8xh4BoRDTLvk58k1Eyyck/view?usp=sharing"
               download
               className={`group relative inline-block px-6 py-3 font-medium rounded-full shadow-md transition-all duration-300 ${
                 darkMode
